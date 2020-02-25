@@ -1,0 +1,196 @@
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/united.bootstrap.min.css">
+
+    <title>Typescript Assignment</title>
+    <script>
+        function validate() {
+            if (document.StudentRegistration.textnames.value == "") {
+                alert("Please provide your Name!");
+                document.StudentRegistration.textnames.focus();
+                return false;
+            }
+            if (document.StudentRegistration.age.value == "") {
+                alert("Please provide your Age!");
+                document.StudentRegistration.textnames.focus();
+                return false;
+            }
+            var age = document.getElementById('age').value;
+            if (age === "") {
+                return true;
+            }
+            age = parseInt(age, 10);
+            if (isNaN(age) || age < 1 || age > 100) {
+                alert("The age must be a number between 1 and 100");
+                return false;
+            }
+
+            if (document.StudentRegistration.address.value == "") {
+                alert("Please provide your Address!");
+                document.StudentRegistration.personaladdress.focus();
+                return false;
+            }
+            if ((StudentRegistration.Gender[0].checked == false) && (StudentRegistration.Gender[1].checked == false)) {
+                alert("Please choose your Gender: Male or Female");
+                return false;
+            }
+            if (document.StudentRegistration.City.value == "-1") {
+                alert("Please provide your City!");
+                document.StudentRegistration.City.focus();
+                return false;
+            }
+            if (document.StudentRegistration.Course.value == "-1") {
+                alert("Please provide your Course!");
+
+                return false;
+            }
+            var email = document.StudentRegistration.emailid.value;
+            atpos = email.indexOf("@");
+            dotpos = email.lastIndexOf(".");
+            if (email == "" || atpos < 1 || (dotpos - atpos < 2)) {
+                alert("Please enter correct email ID, Format is abc@xyz.com");
+                document.StudentRegistration.emailid.focus();
+                return false;
+            }
+
+            if (document.StudentRegistration.mobileno.value == "" ||
+                isNaN(document.StudentRegistration.mobileno.value) ||
+                document.StudentRegistration.mobileno.value.length != 10) {
+                alert("Please provide a Mobile No of 10 digits in the format 123.");
+                document.StudentRegistration.mobileno.focus();
+                return false;
+            }
+
+            return (true);
+        }
+
+        function searchValidate() {
+            if (document.SearchBox.searchBar.value == "Hogwarts") {
+
+                return false;
+
+            } else {
+                alert("Please provide School Name as 'Hogwarts'");
+
+                document.SearchBox.searchBar.focus();
+                return;
+
+            }
+
+        }
+    </script>
+</head>
+
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div clas <span class="navbar-brand">Student Registration</span>
+            </div>
+        </div>
+    </nav>
+    <div class="form-horizontal">
+        <form action="#" name="StudentRegistration" onsubmit="return(validate());">
+            <div class="form-group">
+                <label for="textnames" class="col-sm-2 control-label">Student Name</label>
+                <div class="col-sm-2">
+                    <input type="text" class="form-control" name=textnames id="textname" size="20" placeholder="Student Name" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="age" class="col-sm-2 control-label">Age</label>
+                <div class="col-sm-2">
+                    <input type="text" class="form-control" name=age id="age" size="20" placeholder="Age" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="address" class="col-sm-2 control-label">Address</label>
+                <div class="col-sm-2">
+                    <input type="text" class="form-control" name="address" id="address" size="20" placeholder="Address" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="Gender" class="col-sm-2 control-label">Gender</label>
+                <div class="col-sm-3">
+                    <input type="radio" class="control-label" name="Gender" value="male" size="20">Male
+                    <input type="radio" class=" control-label" name="Gender" value="Female" size="20">Female </div>
+            </div>
+            <div class="form-group">
+                <label for="City" class="col-sm-2 control-label">City</label>
+                <div class="col-sm-3">
+                    <select name="City">
+                                <option value="-1" selected>select..</option>
+                                <option value="Edinburgh">Edinburgh</option>
+                                <option value="Hamilton">Hamilton</option>
+                                <option value="Perth">Perth</option>
+                                
+                                </select>
+                </div>
+
+            </div>
+            <div class="form-group">
+                <label for="Course" class="col-sm-2 control-label">Course</label>
+                <div class="col-sm-3">
+                    <select name="Course">
+                                <option value="-1" selected>select..</option>
+                                <option value="Wizardry">Wizardry</option>
+                                <option value="Dark Arts">Dark Arts</option>
+                                <option value="History of Magic">History of Magic</option>
+                                <option value="Divination">Divination</option>
+                                </select>
+                </div>
+
+            </div>
+            <div class="form-group">
+                <label for="emailid" class="col-sm-2 control-label">Email-Id</label>
+                <div class="col-sm-2">
+                    <input type="text" class="form-control" name="emailid" id="emailid" size="20" placeholder="Email-Id" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="mobileno" class="col-sm-2 control-label">Mobile-No</label>
+                <div class="col-sm-2">
+                    <input type="text" class="form-control" name="mobileno" id="mobileno" size="20" placeholder="Mobile-No" />
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button class="btn btn-primary" type="reset">Reset</button>
+                    <button class="btn btn-success" name="submit" id="submit" type="submit">Submit</button>
+                </div>
+            </div>
+
+        </form>
+        <form action="#" name="SearchBox" onsubmit="return(searchValidate());">
+            <div class="form-group">
+                <label for="searchBar" class="col-sm-2 control-label">Search</label>
+                <div class="col-sm-2">
+                    <input type="text" class="form-control" name="searchBar" id="searchBar" size="40" placeholder="Enter school name as 'Hogwarts'" />
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button class="btn btn-primary" type="reset">Reset</button>
+                    <button class="btn btn-success" id="start" type="submit">Search</button>
+                </div>
+
+            </div>
+            <div class="col-sm-offset-2 col-sm-10" id="messages">
+
+            </div>
+
+
+            <script src="/myCompiledOutput/School.js"></script>
+
+        </form>
+
+
+
+
+    </div>
+
+
+</body>
+
+</html>
